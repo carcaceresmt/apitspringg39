@@ -5,8 +5,12 @@
  */
 package com.app.g39.appg39.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -27,4 +31,7 @@ public class Categoria {
     @Id
     private int idcat;
     private String nomcat;
+    @OneToMany(cascade={CascadeType.PERSIST},mappedBy="categoria")
+    @JsonIgnoreProperties("categoria")
+    private List<Producto> productos;
 }

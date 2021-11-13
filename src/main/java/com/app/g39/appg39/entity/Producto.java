@@ -5,10 +5,13 @@
  */
 package com.app.g39.appg39.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +33,11 @@ public class Producto implements Serializable {
         private int id;
         private String nombre;
         private double precio;
-        private int inventario;     
+        private int inventario;    
+        @ManyToOne
+        @JoinColumn(name="categoria_idcat")
+       // @JsonIgnoreProperties("productos")
+        private Categoria categoria;
     
     
 }
