@@ -36,8 +36,7 @@ public class Producto implements Serializable {
         private int inventario;    
         @ManyToOne
         @JoinColumn(name="categoria_idcat")
-       // @JsonIgnoreProperties("productos")
-        private Categoria categoria;
-    
+        @JsonIgnoreProperties("productos")
+        private Categoria categoria;   
     
 }
